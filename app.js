@@ -1,5 +1,7 @@
-const Telegraf = require("telegraf");
-const bot = new Telegraf("1469766144:AAFq2-sfp5P6ebIBpQS2xCcAUBO06paa6q8");
+const { Composer } = require('micro-bot')
+const bot = new Composer
+// const Telegraf = require("telegraf");
+// const bot = new Telegraf("1469766144:AAFq2-sfp5P6ebIBpQS2xCcAUBO06paa6q8");
 
 bot.on("new_chat_members", (ctx) => {
   ctx.reply(
@@ -18,11 +20,12 @@ bot.start((ctx) => {
     3. Purchase the package.
     
     4. Incase you might need additional /help`);
+   
 });
 
 bot.help((ctx) => {
   ctx.reply(
-    `Hello, i realise you need my help, these are available commands that i can help you with /start\n  - /website\n - /packages\n - /signup\n  - /FAQs\n -/about\n - /admin\n -/tutorials\n`
+    `Hello, i realise you need my help, these are available commands that i can help you with /start\n  - /website\n - /packages\n - /signup\n  - /FAQs\n -/about\n -/tutorials\n`
   );
 });
 bot.on("sticker", (ctx) => {
@@ -82,7 +85,7 @@ bot.command("/signup", (ctx) => {
 bot.command("/tutorials", (ctx) => {
   ctx.telegram.sendMessage(
     ctx.chat.id,
-    //   'Kindly signup following this link <a href="https://linkmine.vip/auth/register" target="blank">Sign up</a>'
+
     `You can use this tutorial <a href="https://www.youtube.com/watch?v=I1XjhcwOs1U&feature=emb_title" target="blank">video</a> to learn how to fund your btc wallet yourself- `,
     { parse_mode: "HTML" }
   );
@@ -138,4 +141,8 @@ bot.command("/packages", (ctx) => {
   );
 });
 
-bot.launch();
+// bot.launch();
+module.exports = bot
+
+// protected-hollows-15256
+// https://protected-hollows-15256.herokuapp.com/
